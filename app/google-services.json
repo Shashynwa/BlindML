@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "641038727105",
+    "project_id": "blindml",
+    "storage_bucket": "blindml.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641038727105:android:1ef1c2e4e063566047a140",
+        "android_client_info": {
+          "package_name": "com.example.blindml"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY7K_M9QbDjASso90vxuIyHAwNB_-aXjk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
