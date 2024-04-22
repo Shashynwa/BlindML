@@ -231,6 +231,8 @@ class MainActivity : AppCompatActivity() {
                     override fun onFailure(call: Call, e: IOException) {
                         runOnUiThread {
                             Toast.makeText(this@MainActivity, "Upload failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                            // Restart the speech recognition
+                            speechRecognizer.startListening(speechRecognizerIntent)
                         }
                         e.printStackTrace()
                         Log.e("MainActivity", "Upload failed", e)
@@ -256,6 +258,8 @@ class MainActivity : AppCompatActivity() {
                                         Toast.makeText(this@MainActivity, "Upload succeeded, but no response message", Toast.LENGTH_SHORT).show()
                                     }
                                 }
+                                // Restart the speech recognition
+                                speechRecognizer.startListening(speechRecognizerIntent)
                             }
                             Log.d("MainActivity", "Server response: $responseBody")
                         }
