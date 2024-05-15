@@ -219,7 +219,7 @@ class MainActivity : AppCompatActivity() {
                     .build()
 
                 // Replace with the correct server URL
-                val serverUrl = "http://192.168.203.185:5000/upload"
+                val serverUrl = "http://192.168.203.130:5000/upload"
 
                 val request = Request.Builder()
                     .url(serverUrl)
@@ -272,7 +272,7 @@ class MainActivity : AppCompatActivity() {
     fun parseAudioUrl(responseBody: String): String {
         val jsonObject = JSONObject(responseBody)
         val audioFilename = jsonObject.getString("audio_file") // Changed from "test" to "audio_file"
-        return "http://192.168.203.185:5000/uploads/$audioFilename"
+        return "http://192.168.203.130:5000/uploads/$audioFilename"
     }
 
     fun playAudio(url: String) {
@@ -289,6 +289,10 @@ class MainActivity : AppCompatActivity() {
             }
             prepareAsync() // Prepare the MediaPlayer asynchronously
         }
-        mediaPlayer.setOnCompletionListener { it.release() }
+        mediaPlayer.setOnCompletionListener {
+            it.release()
+            // Start listening for speech after the audio file has finished playing
+            speechRecognizer.startListening(speechRecognizerIntent)
+        }
     }
 }
